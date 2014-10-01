@@ -12,20 +12,30 @@
 @property (strong, nonatomic) IBOutlet UITextField *urlTextField;
 
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) IBOutlet UIButton *backButton;
+@property NSInteger *pageCount;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.backButton.enabled = NO;
+    self.pageCount = 0;
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (self.pageCount > 0) {
+        self.backButton.enabled = YES;
+    }
+
     NSURL *url = [NSURL URLWithString:self.urlTextField.text];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:urlRequest];
 
+
+    self.pageCount += 1;
     return YES;
 }
 
@@ -37,9 +47,10 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
-- (IBAction)onBackButtonPressed:(id)sender {
-
+- (IBAction)onBackButtonPressed:(UIButton *)sender {
+    sender.enabled = NO;
     if ([self.webView canGoBack]) {
+        sender.enabled = YES;
         [self.webView goBack];
     }
 

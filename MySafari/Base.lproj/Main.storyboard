@@ -68,6 +68,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="hw3-IA-Vyb" id="D5w-gr-q13"/>
                         <outlet property="urlTextField" destination="xpI-7S-J3Q" id="tP9-nW-XPn"/>
                         <outlet property="webView" destination="CPy-0P-nyb" id="aGT-Uj-XOJ"/>
                     </connections>
