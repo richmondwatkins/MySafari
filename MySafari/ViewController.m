@@ -23,7 +23,8 @@
     [super viewDidLoad];
     self.backButton.enabled = NO;
     self.prevValue = 0;
-
+    self.urlTextField.text = @"Type URL here";
+    self.urlTextField.textColor = [UIColor grayColor];
     self.webView.scrollView.delegate = self;
 
 }
@@ -86,8 +87,8 @@
     [alertView show];
 }
 - (IBAction)onClearButtonPushed:(id)sender {
-    self.urlTextField.text = @"Type URL here";
-    self.urlTextField.textColor = [UIColor grayColor];
+    self.urlTextField.text = @"";
+//    self.urlTextField.textColor = [UIColor grayColor];
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
