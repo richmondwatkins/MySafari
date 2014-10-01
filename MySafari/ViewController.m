@@ -42,8 +42,8 @@
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-    NSString *urlTest = self.webView.request.URL.absoluteString;
-    
+    NSString *actualURL = self.webView.request.URL.absoluteString;
+    self.urlTextField.text = actualURL;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
@@ -72,6 +72,9 @@
     alertView.title = @"Coming Soon!";
     [alertView addButtonWithTitle:@"Dismiss"];
     [alertView show];
+}
+- (IBAction)onClearButtonPushed:(id)sender {
+    self.urlTextField.text = @"Type URL here";
 }
 
 @end
