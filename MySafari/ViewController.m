@@ -54,6 +54,8 @@
     NSString *pageTitle = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     self.webPageTitle.text = pageTitle;
 
+    self.backButton.enabled = YES;
+
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 

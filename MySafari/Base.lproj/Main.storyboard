@@ -17,13 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CPy-0P-nyb">
-                                <rect key="frame" x="0.0" y="86" width="600" height="452"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="HAs-ug-Hfm"/>
-                                </connections>
-                            </webView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T3i-Fd-359">
                                 <rect key="frame" x="0.0" y="546" width="600" height="54"/>
                                 <subviews>
@@ -87,7 +80,7 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="KoC-RB-efi"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OyJ-0g-JrG">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OyJ-0g-JrG">
                                 <rect key="frame" x="548" y="56" width="30" height="30"/>
                                 <state key="normal" title="x">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,6 +104,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CPy-0P-nyb">
+                                <rect key="frame" x="0.0" y="86" width="600" height="452"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="HAs-ug-Hfm"/>
+                                </connections>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -118,7 +118,11 @@
                             <constraint firstItem="xpI-7S-J3Q" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="5FW-5a-xv0"/>
                             <constraint firstItem="xpI-7S-J3Q" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="5Mh-pE-plx"/>
                             <constraint firstItem="PyM-eJ-Qz0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="5ss-yJ-BI1"/>
+                            <constraint firstAttribute="centerX" secondItem="CPy-0P-nyb" secondAttribute="centerX" id="8JM-8z-73f"/>
                             <constraint firstItem="xpI-7S-J3Q" firstAttribute="top" secondItem="PyM-eJ-Qz0" secondAttribute="bottom" constant="8" id="JZj-lu-5u1"/>
+                            <constraint firstItem="CPy-0P-nyb" firstAttribute="top" secondItem="OyJ-0g-JrG" secondAttribute="bottom" id="bx5-CM-tQQ"/>
+                            <constraint firstItem="CPy-0P-nyb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="feM-Mn-bEi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CPy-0P-nyb" secondAttribute="trailing" constant="-16" id="la0-pZ-lwk"/>
                             <constraint firstItem="PyM-eJ-Qz0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="tfl-Rw-Y5C"/>
                             <constraint firstAttribute="centerX" secondItem="xpI-7S-J3Q" secondAttribute="centerX" id="vdO-US-rL3"/>
                         </constraints>
