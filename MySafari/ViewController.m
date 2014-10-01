@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
+@property (strong, nonatomic) IBOutlet UILabel *webPageTitle;
 
 @end
 
@@ -44,6 +45,10 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     NSString *actualURL = self.webView.request.URL.absoluteString;
     self.urlTextField.text = actualURL;
+
+    NSString *pageTitle = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    self.webPageTitle.text = pageTitle;
+
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
@@ -75,6 +80,22 @@
 }
 - (IBAction)onClearButtonPushed:(id)sender {
     self.urlTextField.text = @"Type URL here";
+    self.urlTextField.textColor = [UIColor grayColor];
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    self.urlTextField.text = @"";
+    self.urlTextField.textColor = [UIColor blackColor];
+
+    [textField becomeFirstResponder];
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    if([self.urlTextField.text isEqual: @""]){
+        self.urlTextField.text = @"Type URL here";
+        self.urlTextField.textColor = [UIColor grayColor];
+        [textField resignFirstResponder];
+    }
 }
 
 @end
