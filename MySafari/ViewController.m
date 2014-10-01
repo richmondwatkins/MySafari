@@ -42,6 +42,8 @@
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
+    NSString *urlTest = self.webView.request.URL.absoluteString;
+    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
