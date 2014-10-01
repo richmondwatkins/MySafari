@@ -14,7 +14,7 @@
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
 @property (strong, nonatomic) IBOutlet UILabel *webPageTitle;
-@property int *currentScrollPosition;
+@property int prevValue;
 @end
 
 @implementation ViewController
@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.backButton.enabled = NO;
+    self.prevValue = 0;
 
     self.webView.scrollView.delegate = self;
 
@@ -104,8 +105,17 @@
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
     int scrollPosition = self.webView.scrollView.contentOffset.y;
-    NSLog(@"%i", scrollPosition);
 
+    if(scrollPosition > self.prevValue)
+        self.urlTextField.hidden = YES;
+        self.urlTextField.alpha = 0.5;
+
+    else{
+        self.urlTextField.alpha = 1;
+        [self.urlTextField setHidden:NO];
+    }
+
+    self.prevValue = scrollPosition;
 }
 
 
