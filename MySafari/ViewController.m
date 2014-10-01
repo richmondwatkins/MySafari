@@ -30,13 +30,13 @@
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    NSURL *url;
-    if ([textField.text hasPrefix:@"http://"]) {
-         url = [NSURL URLWithString:self.urlTextField.text];
-    } else {
-        url = [NSURL URLWithString: [NSString stringWithFormat:@"http://%@", self.urlTextField.text]];
+    NSString *urlString = self.urlTextField.text;
+
+    if (![urlString hasPrefix:@"http://"]) {
+        urlString = [@"http://" stringByAppendingString:urlString];
     }
 
+    NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:urlRequest];
 
@@ -82,6 +82,7 @@
 
 - (IBAction)onPlusButtonPressed:(id)sender {
     UIAlertView *alertView = [[UIAlertView alloc]init];
+
     alertView.title = @"Coming Soon!";
     [alertView addButtonWithTitle:@"Dismiss"];
     [alertView show];
