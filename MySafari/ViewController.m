@@ -14,7 +14,7 @@
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
 @property (strong, nonatomic) IBOutlet UILabel *webPageTitle;
-
+@property int *currentScrollPosition;
 @end
 
 @implementation ViewController
@@ -22,6 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.backButton.enabled = NO;
+
+    self.webView.scrollView.delegate = self;
+
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -39,6 +42,7 @@
 }
 
 -(void)webViewDidStartLoad:(UIWebView *)webView{
+
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
@@ -99,8 +103,8 @@
 }
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSLog(@"made it");
-    NSLog(@"%d", scrollView.contentOffset.y);
+    int scrollPosition = self.webView.scrollView.contentOffset.y;
+    NSLog(@"%i", scrollPosition);
 
 }
 
