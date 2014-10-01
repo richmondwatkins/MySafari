@@ -106,11 +106,10 @@
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
     int scrollPosition = self.webView.scrollView.contentOffset.y;
 
-    if(scrollPosition > self.prevValue)
-        self.urlTextField.hidden = YES;
+    if(scrollPosition > self.prevValue) {
         self.urlTextField.alpha = 0.5;
-
-    else{
+        self.urlTextField.hidden = YES;
+    } else{
         self.urlTextField.alpha = 1;
         [self.urlTextField setHidden:NO];
     }
