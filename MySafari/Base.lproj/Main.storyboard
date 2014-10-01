@@ -17,11 +17,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T3i-Fd-359">
-                                <rect key="frame" x="0.0" y="546" width="600" height="54"/>
+                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CPy-0P-nyb">
+                                <rect key="frame" x="0.0" y="86" width="600" height="437"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="HAs-ug-Hfm"/>
+                                </connections>
+                            </webView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xpI-7S-J3Q">
+                                <rect key="frame" x="16" y="48" width="530" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="webSearch"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="KoC-RB-efi"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItI-1o-3Zf">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyM-eJ-Qz0">
+                                <rect key="frame" x="16" y="27" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T3i-Fd-359">
+                                <rect key="frame" x="0.0" y="531" width="600" height="74"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hw3-IA-Vyb">
-                                        <rect key="frame" x="72" y="7" width="30" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hw3-IA-Vyb">
+                                        <rect key="frame" x="135" y="22" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="5Of-x6-is1"/>
+                                            <constraint firstAttribute="width" constant="30" id="XBt-k9-GXr"/>
+                                        </constraints>
                                         <state key="normal" title="&lt;">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -29,17 +59,12 @@
                                             <action selector="onBackButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Qhx-MN-CBM"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gy-GN-YGv">
-                                        <rect key="frame" x="101" y="7" width="30" height="30"/>
-                                        <state key="normal" title=">">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onForwardButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lNF-h7-jHm"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZ8-OD-nTO">
-                                        <rect key="frame" x="263" y="7" width="49" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZ8-OD-nTO">
+                                        <rect key="frame" x="288" y="22" width="49" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Meu-M0-d5z"/>
+                                            <constraint firstAttribute="width" constant="49" id="lhg-Uv-Pse"/>
+                                        </constraints>
                                         <state key="normal" title="Reload">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -47,17 +72,25 @@
                                             <action selector="onReloadButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lZ5-Ao-4x0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqK-KM-U8o">
-                                        <rect key="frame" x="168" y="7" width="30" height="30"/>
-                                        <state key="normal" title="X">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqK-KM-U8o">
+                                        <rect key="frame" x="196" y="22" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="doR-3z-bNo"/>
+                                            <constraint firstAttribute="height" constant="30" id="owG-HN-hQX"/>
+                                        </constraints>
+                                        <state key="normal" title="x">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="onStopLoadingButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xor-nh-kNZ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAs-lO-Ude">
-                                        <rect key="frame" x="206" y="8" width="30" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAs-lO-Ude">
+                                        <rect key="frame" x="244" y="22" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="Opl-8K-0k9"/>
+                                            <constraint firstAttribute="height" constant="30" id="hFi-ZF-tbo"/>
+                                        </constraints>
                                         <state key="normal" title="+">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -65,23 +98,27 @@
                                             <action selector="onPlusButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="neb-7g-ZSy"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gy-GN-YGv">
+                                        <rect key="frame" x="354" y="22" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="B0p-Ob-ZKl"/>
+                                            <constraint firstAttribute="width" constant="30" id="nE3-mE-N8n"/>
+                                        </constraints>
+                                        <state key="normal" title=">">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onForwardButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lNF-h7-jHm"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xpI-7S-J3Q">
-                                <rect key="frame" x="16" y="57" width="568" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="2IQ-Tx-LNH"/>
-                                    <constraint firstAttribute="width" constant="568" id="t4W-Kv-yPP"/>
+                                    <constraint firstAttribute="height" constant="74" id="osK-4y-sqn"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="webSearch"/>
-                                <connections>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="KoC-RB-efi"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OyJ-0g-JrG">
-                                <rect key="frame" x="548" y="56" width="30" height="30"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OyJ-0g-JrG">
+                                <rect key="frame" x="554" y="42" width="30" height="30"/>
                                 <state key="normal" title="x">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -89,51 +126,28 @@
                                     <action selector="onClearButtonPushed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EpZ-vD-sTG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItI-1o-3Zf">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyM-eJ-Qz0">
-                                <rect key="frame" x="16" y="28" width="568" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="568" id="oqE-rW-kpJ"/>
-                                    <constraint firstAttribute="height" constant="21" id="zZY-bg-3W7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPy-0P-nyb">
-                                <rect key="frame" x="0.0" y="86" width="600" height="452"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="452" id="CvG-JS-06r"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="HAs-ug-Hfm"/>
-                                </connections>
-                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="PyM-eJ-Qz0" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="3mJ-8H-2Rv"/>
-                            <constraint firstItem="xpI-7S-J3Q" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="5FW-5a-xv0"/>
-                            <constraint firstItem="xpI-7S-J3Q" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="5Mh-pE-plx"/>
-                            <constraint firstItem="PyM-eJ-Qz0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="5ss-yJ-BI1"/>
-                            <constraint firstAttribute="centerX" secondItem="CPy-0P-nyb" secondAttribute="centerX" id="8JM-8z-73f"/>
-                            <constraint firstItem="xpI-7S-J3Q" firstAttribute="top" secondItem="PyM-eJ-Qz0" secondAttribute="bottom" constant="8" id="JZj-lu-5u1"/>
-                            <constraint firstItem="CPy-0P-nyb" firstAttribute="top" secondItem="OyJ-0g-JrG" secondAttribute="bottom" id="bx5-CM-tQQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="OyJ-0g-JrG" secondAttribute="trailing" constant="6" id="c5D-gg-a27"/>
-                            <constraint firstItem="CPy-0P-nyb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="feM-Mn-bEi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="CPy-0P-nyb" secondAttribute="trailing" constant="-16" id="la0-pZ-lwk"/>
-                            <constraint firstItem="OyJ-0g-JrG" firstAttribute="top" secondItem="PyM-eJ-Qz0" secondAttribute="bottom" constant="7" id="qtq-Cx-ILd"/>
-                            <constraint firstItem="PyM-eJ-Qz0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="tfl-Rw-Y5C"/>
-                            <constraint firstAttribute="centerX" secondItem="xpI-7S-J3Q" secondAttribute="centerX" id="vdO-US-rL3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xpI-7S-J3Q" secondAttribute="trailing" constant="16" id="05O-DB-qEd"/>
+                            <constraint firstItem="OyJ-0g-JrG" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="22" id="4I1-bo-qyM"/>
+                            <constraint firstItem="CPy-0P-nyb" firstAttribute="top" secondItem="OyJ-0g-JrG" secondAttribute="bottom" constant="14" id="EBI-3z-bPW"/>
+                            <constraint firstItem="xpI-7S-J3Q" firstAttribute="top" secondItem="PyM-eJ-Qz0" secondAttribute="bottom" id="GZm-6r-nbP"/>
+                            <constraint firstItem="CPy-0P-nyb" firstAttribute="top" secondItem="xpI-7S-J3Q" secondAttribute="bottom" constant="8" id="MwP-IV-DRg"/>
+                            <constraint firstItem="OyJ-0g-JrG" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="S6o-bR-uFm"/>
+                            <constraint firstItem="T3i-Fd-359" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="TAr-6s-CJO"/>
+                            <constraint firstItem="OyJ-0g-JrG" firstAttribute="leading" secondItem="xpI-7S-J3Q" secondAttribute="trailing" constant="8" id="TDT-PS-uYp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CPy-0P-nyb" secondAttribute="trailing" constant="-16" id="VeN-oz-BAJ"/>
+                            <constraint firstAttribute="centerX" secondItem="CPy-0P-nyb" secondAttribute="centerX" id="Wb0-Hf-cnA"/>
+                            <constraint firstItem="T3i-Fd-359" firstAttribute="top" secondItem="CPy-0P-nyb" secondAttribute="bottom" constant="8" id="cWh-U5-UFT"/>
+                            <constraint firstItem="CPy-0P-nyb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="jDE-PR-reh"/>
+                            <constraint firstItem="xpI-7S-J3Q" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="mGC-3v-4oE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="T3i-Fd-359" secondAttribute="trailing" constant="-16" id="uzs-PI-mnk"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="hw3-IA-Vyb" id="D5w-gr-q13"/>
+                        <outlet property="forwardButton" destination="1gy-GN-YGv" id="0QT-TD-2Cf"/>
                         <outlet property="urlTextField" destination="xpI-7S-J3Q" id="tP9-nW-XPn"/>
                         <outlet property="webPageTitle" destination="PyM-eJ-Qz0" id="uyT-bo-HoX"/>
                         <outlet property="webView" destination="CPy-0P-nyb" id="aGT-Uj-XOJ"/>

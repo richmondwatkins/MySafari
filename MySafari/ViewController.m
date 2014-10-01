@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
 @property (strong, nonatomic) IBOutlet UILabel *webPageTitle;
 @property int prevValue;
+@property (strong, nonatomic) IBOutlet UIButton *forwardButton;
 @end
 
 @implementation ViewController
@@ -22,10 +23,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.backButton.enabled = NO;
+    self.forwardButton.enabled = NO;
     self.prevValue = 0;
     self.urlTextField.text = @"Type URL here";
     self.urlTextField.textColor = [UIColor grayColor];
     self.webView.scrollView.delegate = self;
+    self.webPageTitle.alpha = 0;
 
 }
 
@@ -37,8 +40,18 @@
         url = [NSURL URLWithString: [NSString stringWithFormat:@"http://%@", self.urlTextField.text]];
     }
 
+    NSString *urlStringEnd = [self.urlTextField.text substringFromIndex: [self.urlTextField.text length] - 4];
+
+    if (![urlStringEnd isEqualToString:@".com"]){
+        url = [NSURL URLWithString: [NSString stringWithFormat:@"htttp://www.google.com/search?q=%@", self.urlTextField.text]];
+        NSLog(@"Made it %@", url);
+
+    }
+
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:urlRequest];
+
+    [self.view endEditing:YES];
 
     return YES;
 }
@@ -49,6 +62,8 @@
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
+    self.webPageTitle.alpha = 1;
+
     NSString *actualURL = self.webView.request.URL.absoluteString;
     self.urlTextField.text = actualURL;
 
@@ -56,6 +71,10 @@
     self.webPageTitle.text = pageTitle;
 
     self.backButton.enabled = YES;
+
+    if ([self.webView canGoForward]) {
+        self.forwardButton.enabled = YES;
+    }
 
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
@@ -69,8 +88,13 @@
 
 }
 
-- (IBAction)onForwardButtonPressed:(id)sender {
-    [self.webView goForward];
+- (IBAction)onForwardButtonPressed:(UIButton *)sender {
+    sender.enabled = NO;
+
+    if ([self.webView canGoForward]) {
+        sender.enabled = YES;
+        [self.webView goForward];
+    }
 }
 
 - (IBAction)onReloadButtonPressed:(id)sender {
@@ -88,7 +112,6 @@
 }
 - (IBAction)onClearButtonPushed:(id)sender {
     self.urlTextField.text = @"";
-//    self.urlTextField.textColor = [UIColor grayColor];
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
