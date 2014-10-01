@@ -13,7 +13,6 @@
 
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
-@property NSInteger *pageCount;
 
 @end
 
@@ -22,20 +21,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.backButton.enabled = NO;
-    self.pageCount = 0;
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    if (self.pageCount > 0) {
-        self.backButton.enabled = YES;
+    NSURL *url;
+    if ([textField.text containsString:@"http://"]) {
+         url = [NSURL URLWithString:self.urlTextField.text];
+    } else {
+        NSString *urlString = [NSString ];
     }
 
     NSURL *url = [NSURL URLWithString:self.urlTextField.text];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:urlRequest];
 
-
-    self.pageCount += 1;
     return YES;
 }
 
@@ -64,5 +63,7 @@
     [self.webView reload];
 }
 
+- (IBAction)onStopLoadingButtonPressed:(id)sender {[self.webView stopLoading];
+}
 
 @end
