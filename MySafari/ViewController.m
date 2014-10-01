@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController () <UIWebViewDelegate, UITextFieldDelegate, UIAlertViewDelegate>
+@interface ViewController () <UIWebViewDelegate, UITextFieldDelegate, UIAlertViewDelegate, UIScrollViewDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *urlTextField;
 
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
@@ -97,5 +97,20 @@
         [textField resignFirstResponder];
     }
 }
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"made it");
+    NSLog(@"%d", scrollView.contentOffset.y);
+
+}
+
+
+
+
+
+
+
+
+
 
 @end
