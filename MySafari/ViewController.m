@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController () <UIWebViewDelegate, UITextFieldDelegate>
+@interface ViewController () <UIWebViewDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *urlTextField;
 
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
@@ -25,13 +25,12 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     NSURL *url;
-    if ([textField.text containsString:@"http://"]) {
+    if ([textField.text hasPrefix:@"http://"]) {
          url = [NSURL URLWithString:self.urlTextField.text];
     } else {
-        NSString *urlString = [NSString ];
+        url = [NSURL URLWithString: [NSString stringWithFormat:@"http://%@", self.urlTextField.text]];
     }
 
-    NSURL *url = [NSURL URLWithString:self.urlTextField.text];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:urlRequest];
 
@@ -64,6 +63,13 @@
 }
 
 - (IBAction)onStopLoadingButtonPressed:(id)sender {[self.webView stopLoading];
+}
+
+- (IBAction)onPlusButtonPressed:(id)sender {
+    UIAlertView *alertView = [[UIAlertView alloc]init];
+    alertView.title = @"Coming Soon!";
+    [alertView addButtonWithTitle:@"Dismiss"];
+    [alertView show];
 }
 
 @end
