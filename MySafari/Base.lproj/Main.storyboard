@@ -37,7 +37,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyM-eJ-Qz0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyM-eJ-Qz0">
                                 <rect key="frame" x="16" y="27" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -143,6 +143,7 @@
                             <constraint firstItem="CPy-0P-nyb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="jDE-PR-reh"/>
                             <constraint firstItem="xpI-7S-J3Q" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="mGC-3v-4oE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="T3i-Fd-359" secondAttribute="trailing" constant="-16" id="uzs-PI-mnk"/>
+                            <constraint firstAttribute="centerX" secondItem="PyM-eJ-Qz0" secondAttribute="centerX" id="wJf-pV-UKB"/>
                         </constraints>
                     </view>
                     <connections>

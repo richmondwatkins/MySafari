@@ -43,9 +43,7 @@
     NSString *urlStringEnd = [self.urlTextField.text substringFromIndex: [self.urlTextField.text length] - 4];
 
     if (![urlStringEnd isEqualToString:@".com"]){
-        url = [NSURL URLWithString: [NSString stringWithFormat:@"htttp://www.google.com/search?q=%@", self.urlTextField.text]];
-        NSLog(@"Made it %@", url);
-
+        url = [NSURL URLWithString: [NSString stringWithFormat:@"http://www.google.com/search?q=%@", self.urlTextField.text]];
     }
 
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
