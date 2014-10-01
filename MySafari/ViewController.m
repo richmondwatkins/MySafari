@@ -38,7 +38,19 @@
 }
 
 - (IBAction)onBackButtonPressed:(id)sender {
-    [self.webView goBack];
+
+    if ([self.webView canGoBack]) {
+        [self.webView goBack];
+    }
+
+}
+
+- (IBAction)onForwardButtonPressed:(id)sender {
+    [self.webView goForward];
+}
+
+- (IBAction)onReloadButtonPressed:(id)sender {
+    [self.webView reload];
 }
 
 
