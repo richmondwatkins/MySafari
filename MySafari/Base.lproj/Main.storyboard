@@ -47,7 +47,7 @@
                                 <rect key="frame" x="0.0" y="531" width="600" height="74"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hw3-IA-Vyb">
-                                        <rect key="frame" x="135" y="22" width="30" height="30"/>
+                                        <rect key="frame" x="37" y="8" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="5Of-x6-is1"/>
                                             <constraint firstAttribute="width" constant="30" id="XBt-k9-GXr"/>
@@ -60,7 +60,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZ8-OD-nTO">
-                                        <rect key="frame" x="288" y="22" width="49" height="30"/>
+                                        <rect key="frame" x="62" y="8" width="49" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Meu-M0-d5z"/>
                                             <constraint firstAttribute="width" constant="49" id="lhg-Uv-Pse"/>
@@ -73,7 +73,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqK-KM-U8o">
-                                        <rect key="frame" x="196" y="22" width="30" height="30"/>
+                                        <rect key="frame" x="146" y="8" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="doR-3z-bNo"/>
                                             <constraint firstAttribute="height" constant="30" id="owG-HN-hQX"/>
@@ -85,21 +85,8 @@
                                             <action selector="onStopLoadingButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xor-nh-kNZ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAs-lO-Ude">
-                                        <rect key="frame" x="244" y="22" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="Opl-8K-0k9"/>
-                                            <constraint firstAttribute="height" constant="30" id="hFi-ZF-tbo"/>
-                                        </constraints>
-                                        <state key="normal" title="+">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onPlusButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="neb-7g-ZSy"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gy-GN-YGv">
-                                        <rect key="frame" x="354" y="22" width="30" height="30"/>
+                                        <rect key="frame" x="184" y="8" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="B0p-Ob-ZKl"/>
                                             <constraint firstAttribute="width" constant="30" id="nE3-mE-N8n"/>
@@ -109,6 +96,19 @@
                                         </state>
                                         <connections>
                                             <action selector="onForwardButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lNF-h7-jHm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAs-lO-Ude">
+                                        <rect key="frame" x="113" y="8" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="Opl-8K-0k9"/>
+                                            <constraint firstAttribute="height" constant="30" id="hFi-ZF-tbo"/>
+                                        </constraints>
+                                        <state key="normal" title="+">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onPlusButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="neb-7g-ZSy"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -139,11 +139,11 @@
                             <constraint firstItem="OyJ-0g-JrG" firstAttribute="leading" secondItem="xpI-7S-J3Q" secondAttribute="trailing" constant="8" id="TDT-PS-uYp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CPy-0P-nyb" secondAttribute="trailing" constant="-16" id="VeN-oz-BAJ"/>
                             <constraint firstAttribute="centerX" secondItem="CPy-0P-nyb" secondAttribute="centerX" id="Wb0-Hf-cnA"/>
+                            <constraint firstAttribute="centerX" secondItem="PyM-eJ-Qz0" secondAttribute="centerX" id="b9d-pJ-1kV"/>
                             <constraint firstItem="T3i-Fd-359" firstAttribute="top" secondItem="CPy-0P-nyb" secondAttribute="bottom" constant="8" id="cWh-U5-UFT"/>
                             <constraint firstItem="CPy-0P-nyb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="jDE-PR-reh"/>
                             <constraint firstItem="xpI-7S-J3Q" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="mGC-3v-4oE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="T3i-Fd-359" secondAttribute="trailing" constant="-16" id="uzs-PI-mnk"/>
-                            <constraint firstAttribute="centerX" secondItem="PyM-eJ-Qz0" secondAttribute="centerX" id="wJf-pV-UKB"/>
                         </constraints>
                     </view>
                     <connections>

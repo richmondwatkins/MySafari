@@ -14,7 +14,7 @@
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
 @property (strong, nonatomic) IBOutlet UILabel *webPageTitle;
-@property int prevValue;
+@property int scrollValue;
 @property (strong, nonatomic) IBOutlet UIButton *forwardButton;
 @end
 
@@ -24,25 +24,27 @@
     [super viewDidLoad];
     self.backButton.enabled = NO;
     self.forwardButton.enabled = NO;
-    self.prevValue = 0;
-    self.urlTextField.text = @"Type URL here";
-    self.urlTextField.textColor = [UIColor grayColor];
+    [self prepopulateTextField];
+    self.scrollValue = 0;
     self.webView.scrollView.delegate = self;
-    self.webPageTitle.alpha = 0;
+    self.webPageTitle.hidden = YES;
 
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     NSURL *url;
+
     if ([textField.text hasPrefix:@"http://"]) {
          url = [NSURL URLWithString:self.urlTextField.text];
     } else {
         url = [NSURL URLWithString: [NSString stringWithFormat:@"http://%@", self.urlTextField.text]];
     }
 
-    NSString *urlStringEnd = [self.urlTextField.text substringFromIndex: [self.urlTextField.text length] - 4];
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@".(com|org|co|net)$" options:0 error:&error];
+    NSUInteger numberOfMatches = [regex numberOfMatchesInString:self.urlTextField.text options:0 range:NSMakeRange(0, [self.urlTextField.text length])];
 
-    if (![urlStringEnd isEqualToString:@".com"]){
+    if (!numberOfMatches){
         url = [NSURL URLWithString: [NSString stringWithFormat:@"http://www.google.com/search?q=%@", self.urlTextField.text]];
     }
 
@@ -60,7 +62,7 @@
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-    self.webPageTitle.alpha = 1;
+    self.webPageTitle.hidden = NO;
 
     NSString *actualURL = self.webView.request.URL.absoluteString;
     self.urlTextField.text = actualURL;
@@ -79,6 +81,7 @@
 
 - (IBAction)onBackButtonPressed:(UIButton *)sender {
     sender.enabled = NO;
+
     if ([self.webView canGoBack]) {
         sender.enabled = YES;
         [self.webView goBack];
@@ -99,7 +102,9 @@
     [self.webView reload];
 }
 
-- (IBAction)onStopLoadingButtonPressed:(id)sender {[self.webView stopLoading];
+
+- (IBAction)onStopLoadingButtonPressed:(id)sender {
+    [self.webView stopLoading];
 }
 
 - (IBAction)onPlusButtonPressed:(id)sender {
@@ -110,6 +115,7 @@
 }
 - (IBAction)onClearButtonPushed:(id)sender {
     self.urlTextField.text = @"";
+    [self prepopulateTextField];
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
@@ -121,8 +127,7 @@
 
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     if([self.urlTextField.text isEqual: @""]){
-        self.urlTextField.text = @"Type URL here";
-        self.urlTextField.textColor = [UIColor grayColor];
+        [self prepopulateTextField];
         [textField resignFirstResponder];
     }
 }
@@ -130,7 +135,7 @@
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
     int scrollPosition = self.webView.scrollView.contentOffset.y;
 
-    if(scrollPosition > self.prevValue) {
+    if(scrollPosition > self.scrollValue) {
         self.urlTextField.alpha = 0.5;
         self.urlTextField.hidden = YES;
     } else{
@@ -138,11 +143,15 @@
         [self.urlTextField setHidden:NO];
     }
 
-    self.prevValue = scrollPosition;
+    self.scrollValue = scrollPosition;
 }
 
 
+-(void)prepopulateTextField {
+    self.urlTextField.text = @"Type URL here";
+    self.urlTextField.textColor = [UIColor grayColor];
 
+}
 
 
 
