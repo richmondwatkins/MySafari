@@ -41,7 +41,7 @@
     }
 
     NSError *error = NULL;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@".(com|org|co|net)$" options:0 error:&error];
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@".(com|org|co|net|edu)$" options:0 error:&error];
     NSUInteger numberOfMatches = [regex numberOfMatchesInString:self.urlTextField.text options:0 range:NSMakeRange(0, [self.urlTextField.text length])];
 
     if (!numberOfMatches){
